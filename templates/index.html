@@ -20,9 +20,27 @@
     
     <link rel="stylesheet" href="{{url_for('static', filename='css/flaticon.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='css/icomoon.css')}}">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+		<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+		<link rel="apple-touch-icon" sizes="57x57" href="{{url_for('static', filename='images/apple-icon-57x57.png')}}">
+		<link rel="apple-touch-icon" sizes="60x60" href="{{url_for('static', filename='images/apple-icon-60x60.png')}}">
+		<link rel="apple-touch-icon" sizes="72x72" href="{{url_for('static', filename='images/apple-icon-72x72.png')}}">
+		<link rel="apple-touch-icon" sizes="76x76" href="{{url_for('static', filename='images/apple-icon-76x76.png')}}">
+		<link rel="apple-touch-icon" sizes="114x114" href="{{url_for('static', filename='images/apple-icon-114x114.png')}}">
+		<link rel="apple-touch-icon" sizes="120x120" href="{{url_for('static', filename='images/apple-icon-120x120.png')}}">
+		<link rel="apple-touch-icon" sizes="144x144" href="{{url_for('static', filename='images/apple-icon-144x144.png')}}">
+		<link rel="apple-touch-icon" sizes="152x152" href="{{url_for('static', filename='images/apple-icon-152x152.png')}}">
+		<link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='images/apple-icon-180x180.png')}}">
+		<link rel="icon" type="image/png" sizes="192x192"  href="{{url_for('static', filename='images/android-icon-192x192.png')}}">
+		<link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='images/favicon-32x32.png')}}">
+		<link rel="icon" type="image/png" sizes="96x96" href="{{url_for('static', filename='images/favicon-96x96.png')}}">
+		<link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='images/favicon-16x16.png')}}">
+		<link rel="manifest" href="{{url_for('static', filename='images/manifest.json')}}">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+		<meta name="theme-color" content="#ffffff">
   </head>
   <body>
+		<!--
 	  <div class="bg-top navbar-light">
     	<div class="container">
     		<div class="row no-gutters d-flex align-items-center align-items-stretch">
@@ -56,18 +74,24 @@
 			    </div>
 		    </div>
 		  </div>
-    </div>
+		</div>
+	-->
 	  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container d-flex align-items-center px-4">
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
-	      </button>
+				</button>
+				<!--
 	      <form action="#" class="searchform order-lg-last">
           <div class="form-group d-flex">
             <input type="text" class="form-control pl-3" placeholder="Search">
             <button type="submit" placeholder="" class="form-control search"><span class="ion-ios-search"></span></button>
           </div>
-        </form>
+				</form>
+			-->
+			<div class="col-md-4 d-flex align-items-center py-4">
+				<a class="navbar-brand" href="/">O S H T S</a>
+			</div>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav mr-auto">
 	        	<li class="nav-item active"><a href="/" class="nav-link pl-0">Home</a></li>
@@ -75,10 +99,13 @@
 	        	<li class="nav-item"><a href="courses.html" class="nav-link">Courses</a></li>
 	        	<li class="nav-item"><a href="teacher.html" class="nav-link">Staff</a></li>
 	        	<li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+						<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+						<li class="nav-item"><a href="contact.html" class="nav-link">Sign In</a></li>
 	        </ul>
 	      </div>
-	    </div>
+			</div>
+			
+			
 	  </nav>
     <!-- END nav -->
     
@@ -88,9 +115,9 @@
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
           <div class="col-md-6 ftco-animate">
-            <h1 class="mb-4">Education Needs Complete Solution</h1>
-            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-            <p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Contact Us</a></p>
+            <h1 class="mb-4">Get in touch</h1>
+            <p>Gets whats happening in the school, daily news, blog post, videos and so much more.</p>
+            <p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Create account</a></p>
           </div>
         </div>
         </div>
@@ -101,9 +128,11 @@
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
           <div class="col-md-6 ftco-animate">
-            <h1 class="mb-4">University, College School Education</h1>
-            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-            <p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Contact Us</a></p>
+            <h1 class="mb-4">Read and practice online</h1>
+						<p>Read educational books, watch videos and listen audios to improve your vocabulary and cognitive skills.</p>
+						<p>Play educational games online to enhance whats youve learnt so far.</p>
+						<p></p>
+            <p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Create account</a></p>
           </div>
         </div>
         </div>
@@ -119,8 +148,8 @@
             		<span class="flaticon-teacher"></span>
               </div>
               <div class="media-body p-2 mt-3">
-                <h3 class="heading">Certified Teachers</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <h3 class="heading">Professional Teachers</h3>
+                <p>Get in touch teachers online, ask questions as you learn.</p>
               </div>
             </div>      
           </div>
@@ -130,8 +159,8 @@
             		<span class="flaticon-reading"></span>
               </div>
               <div class="media-body p-2 mt-3">
-                <h3 class="heading">Special Education</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <h3 class="heading">Learn online</h3>
+                <p>Learn your favourite subject with tons of practical questions to get you going.</p>
               </div>
             </div>    
           </div>
@@ -142,7 +171,7 @@
               </div>
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">Book &amp; Library</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <p>Loop through books, download and read offline.</p>
               </div>
             </div>      
           </div>
@@ -152,8 +181,8 @@
             		<span class="flaticon-diploma"></span>
               </div>
               <div class="media-body p-2 mt-3">
-                <h3 class="heading">Sport Clubs</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <h3 class="heading">News &amp; articles</h3>
+                <p>Read news and articles with background song to get you conforted.</p>
               </div>
             </div>      
           </div>
