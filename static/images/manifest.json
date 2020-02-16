@@ -1,6 +1,7 @@
 {
  "name": "OSHTS",
- "start_url": "/",
+ "short_name": "OSHTS"
+ "start_url": "/?utm_source=homescreen",
  "background-color" : "#323232",
  "display": "standalone",
  "orientation": "potrait",
