@@ -44,7 +44,16 @@
     <meta  name="apple-mobile-web-app-title" content="OSHTS">
     <meta  name="apple-mobile-web-app-status-bar-style" content="default">
 
+<script>
+let defferedPrompt;
 
+window.addEventListener('beforeinstallprompt', (e) => {
+  defferedPrompt = e;
+  showInstallPromotion();
+});
+
+
+</script>
   </head>
   <body>
 		<!--
