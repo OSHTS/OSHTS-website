@@ -1,5 +1,11 @@
 {
- "name": "App",
+ "name": "OSHTS",
+ "start_url": "/",
+ "background-color" : "#323232",
+ "display": "standalone",
+ "orientation": "potrait",
+ "scope": "/",
+ "theme-color": "#323232"
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
