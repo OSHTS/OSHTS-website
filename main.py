@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_login import login_required, logout_user, current_user, login_user, UserMixin
@@ -63,6 +63,10 @@ def login():
             if password == user.password:
                 login_user(user)
                 return redirect(url_for('index'))
+            else:
+                flash("You entered the wrong password", "error")
+                return render_template("login.html")
+        flash("Account does not exit", "error")
     return render_template("login.html")
 
 @app.route("/signup", methods=["POST", "GET"])
@@ -73,14 +77,28 @@ def signup():
         fullname = request.form['fullname']
         username = request.form['username']
         password = hash(request.form['password'])
+        c_password = hash(request.form['c_password'])
 
-        user = User(fullname=fullname, username=username, password=password)
-        db.session.add(user)
-        db.session.commit()
+        user = User.query.filter_by(username=username).first()
 
-        return redirect(url_for('index'))
+        if user is None:
+            if password == c_password:
+                user = User(fullname=fullname, username=username, password=password)
+                db.session.add(user)
+                db.session.commit()
+                new_user = User.query.filter_by(username=username).first()
+                login_user(new_user)
+                return redirect(url_for('index'))
+            else:
+                flash("Password does not match your confirmed password", "error")
+                return render_template("signup.html")
+        else:
+            flash("Username has been taken already")
+            return render_template("signup.html")
+    return render_template('signup.html')
 
-    return render_template("signup.html")
+
+
 
 @app.route('/logout')
 def logout():
