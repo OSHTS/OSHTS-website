@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="{{url_for('static', filename='css/open-iconic-bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='css/animate.css')}}">
+      <link rel="stylesheet" href="{{url_for('static', filename='css/bootdtrap/bootstrap.min.css')}}">
 
     <link rel="stylesheet" href="{{url_for('static', filename='css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='css/owl.theme.default.min.css')}}">
@@ -106,7 +107,11 @@
 	        	<li class="nav-item"><a href="teacher.html" class="nav-link">Staff</a></li>
 	        	<li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
 						<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-						<li class="nav-item"><a href="/login" class="nav-link">Sign In</a></li>
+            {% if current_user.is_authenticated %}
+						<li class="nav-item"><a href="/logout" class="nav-link">Log Out</a></li>
+            {% else %}
+            <li class="nav-item"><a href="/login" class="nav-link">Log In</a></li>
+            {% endif %}
 	        </ul>
 	      </div>
 			</div>
@@ -123,7 +128,11 @@
           <div class="col-md-6 ftco-animate">
             <h1 class="mb-4">Get in touch</h1>
             <p>Gets whats happening in the school, daily news, blog post, videos and so much more.</p>
-            <p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Create account</a></p>
+            {% if  not current_user.is_authenticated %}
+            <p><a href="/signup" class="btn btn-primary px-4 py-3 mt-3">Sign Up</a></p>
+            {% else %}
+            <p><a href="/forume" class="btn btn-primary px-4 py-3 mt-3">Got to Forume</a></p>
+            {% endif %}
           </div>
         </div>
         </div>
@@ -136,9 +145,12 @@
           <div class="col-md-6 ftco-animate">
             <h1 class="mb-4">Read and practice online</h1>
 						<p>Read educational books, watch videos and listen audios to improve your vocabulary and cognitive skills.</p>
-						<p>Play educational games online to enhance whats youve learnt so far.</p>
-						<p></p>
-            <p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Create account</a></p>
+						<p>Play educational games online to enhance whats you've learnt so far.</p>
+            {% if  not current_user.is_authenticated %}
+            <p><a href="/signup" class="btn btn-primary px-4 py-3 mt-3">Sign Up</a></p>
+            {% else %}
+            <p><a href="/forume" class="btn btn-primary px-4 py-3 mt-3">Got to Forume</a></p>
+            {% endif %}
           </div>
         </div>
         </div>
