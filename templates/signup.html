@@ -52,12 +52,12 @@
 					<img src="{{url_for('static', filename='images/logo.jpg')}}" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="post">
 					<span class="login100-form-title js-tilt" data-tilt>
 					 Sign Up
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Username is required">
+					<div class="wrap-input100 validate-input" data-validate = "Fullname is required">
 						<input class="input100" type="text" name="fullname" placeholder="Fullname" value="{{request.form.fullname}}">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -80,7 +80,7 @@
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
-					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+					<div class="wrap-input100 validate-input" data-validate = "Confirm password">
 						<input class="input100" type="password" name="c_password" placeholder="Confirm Password" value="{{request.form.c_password}}">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
