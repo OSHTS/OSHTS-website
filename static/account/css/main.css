@@ -188,7 +188,7 @@ iframe {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 127px 130px 33px 95px;
+  padding: 100px 110px 33px 85px;
 }
 
 /*------------------------------------------------------------------
@@ -250,7 +250,7 @@ iframe {
 .focus-input100 {
   display: block;
   position: absolute;
-  border-radius: 25px;
+  //border-radius: 25px;
   bottom: 0;
   left: 0;
   z-index: -1;

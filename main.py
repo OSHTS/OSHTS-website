@@ -3,7 +3,15 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqllite:///database.db'
+app.config['SECRET_KEY'] = "nothing"
 db = SQLAlchemy(app)
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    fullname = db.Column(db.String(200), unique=False, nullable=False, default="Anonymous")
+    username = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(120), nullable=False)
+    image_file = db.Column(db.String(120), nullable=False, default="default.jpg" )
 
 
 @app.route("/")
