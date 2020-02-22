@@ -26,6 +26,10 @@ def load_user(user_id):
 def hash(text):
     return hashlib.md5(text.encode('utf-8')).hexdigest()
 
+Fetched = db.Table("Fetched",
+    db.Column("user_id",db.Integer, db.ForeignKey("user.id")),
+    db.Column("message_id",db.Integer, db.ForeignKey("message.id"))
+    )
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
@@ -33,10 +37,15 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(120), nullable=False)
     image_file = db.Column(db.String(120), nullable=False, default="default.jpg" )
+    seen = db.relationship("Message", secondary=Fetched, backref=db.backref("Chatters",lazy="dynamic") )
+
+class Message(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    message = db.Column(db.String(300))
 
 
     def __repr__(self):
-        f"fullname:{slef.fullname}, username:{self.username}, id:{self.id}"
+        f"User('{slef.fullname}', '{self.username}', '{self.id}')"
 
 @app.route("/")
 def index():
@@ -98,7 +107,9 @@ def signup():
     return render_template('signup.html')
 
 
-
+@app.route("/chatroom")
+def chatroom():
+    return render_template('chatroom.html')
 
 @app.route('/logout')
 def logout():
