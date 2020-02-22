@@ -66,7 +66,7 @@
 
 	.message{
 		background-color: #4158d0;
-		padding: 7px;
+		padding: 10px;
 		color: white;
 		font-size: 14px;
 		margin-top:10px;
@@ -74,7 +74,11 @@
 		border-radius: 5px;
 		max-width: 300px;
 		height: auto;
-	}
+
+}
+
+
+
 </style>
 </head>
 <body>
@@ -85,7 +89,7 @@
 				<span class="login100-form-title js-tilt" data-tilt>
 					Chatroom
 				</span>
-				<div class="screen">
+				<div class="screen" id="screen">
 					<div class="message txt2">
 						Hey guys, I am new here.
 					</div>
@@ -94,14 +98,14 @@
 					</div>
 				</div>
 				<div class="wrap-input100 validate-input" data-validate = "Password is required">
-					<input class="input100" type="text" name="message" placeholder="Enter your message" >
+					<input class="input100" id="message" type="text" name="message" placeholder="Enter your message" >
 					<span class="focus-input100"></span>
 					<span class="symbol-input100">
 						<img width="20px" src="{{url_for('static', filename='images/chat.ico')}}">
 					</span>
 				</div>
 				<div class="send">
-					<button><img src="{{url_for('static', filename='images/send.ico')}}"></button>
+					<button onclick="send()"><img src="{{url_for('static', filename='images/send.ico')}}"></button>
 				</div>
 			</div>
 			</div>
@@ -119,6 +123,7 @@
 	<script src="{{url_for('static', filename='account/vendor/select2/select2.min.js')}}"></script>
 <!--===============================================================================================-->
 	<script src="{{url_for('static', filename='account/vendor/tilt/tilt.jquery.min.js')}}"></script>
+	  <script src="{{url_for('static', filename='js/chatroom.js')}}"></script>
 	<script >
 		$('.js-tilt').tilt({
 			scale: 1.1
