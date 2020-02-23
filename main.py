@@ -113,7 +113,9 @@ def signup():
 
 @app.route("/chatroom")
 def chatroom():
-    return render_template('chatroom.html')
+    if current_user.is_authenticated:
+        return render_template('chatroom.html')
+    return redirect(url_for('login'))
 
 @app.route('/logout')
 def logout():
