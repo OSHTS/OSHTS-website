@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_login import login_required, logout_user, current_user, login_user, UserMixin
 import hashlib
+import json
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
@@ -39,13 +40,16 @@ class User(db.Model, UserMixin):
     image_file = db.Column(db.String(120), nullable=False, default="default.jpg" )
     seen = db.relationship("Message", secondary=Fetched, backref=db.backref("Chatters",lazy="dynamic") )
 
+    def __repr__(self):
+        return f"User('{self.id}', '{self.fullname}', '{self.username}')"
+
 class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     message = db.Column(db.String(300))
 
 
     def __repr__(self):
-        f"User('{slef.fullname}', '{self.username}', '{self.id}')"
+        return f"User('{self.id}')"
 
 @app.route("/")
 def index():
@@ -116,6 +120,36 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
+@app.route("/messages")
+def messages():
+    #if user has logged in, then it retrives new messages unread by user
+    if current_user.is_authenticated:
+        c_user = current_user
+        #Queryinh all datanbase messages
+        messages = Message.query.all()
+        #variables to hold te messages for iteration
+        db_messages = []
+        n_messages = []
+        #Variable to hold filtered messages
+        api_messages = []
+        for message in messages:
+            db_messages.append(message)
+        if(db_messages != []):
+            #if messages in the database is nt empty, then
+            for x in db_messages:
+                if(c_user in x.Chatters):
+                    #Checking if user has seen the message then skip
+                    pass
+                else:
+                    #else append the message as unread
+                    n_messages.append(x)
+        #Converting messages from Type Object to Type Dictionary
+        for message in n_messages:
+            new_messages = {}
+            new_messages['message'] = message.message
+            api_messages.append(new_messages)
+        return json.dumps(api_messages)
+    return redirect(url_for('index'))
 if __name__ == "__main__":
     db.create_all()
     app.run(debug=True)
