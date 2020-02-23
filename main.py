@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect, flash
+from flask import Flask, render_template, url_for, request, redirect, flash, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_login import login_required, logout_user, current_user, login_user, UserMixin
@@ -147,9 +147,34 @@ def messages():
         for message in n_messages:
             new_messages = {}
             new_messages['message'] = message.message
+            new_messages['id'] = message.id
             api_messages.append(new_messages)
-        return json.dumps(api_messages)
+        #return json.dumps(api_messages)
+        return jsonify(api_messages)
     return redirect(url_for('index'))
+
+@app.route("/send_msg/<int:id>")
+def send_msg(id):
+    if current_user.is_authenticated:
+        user = current_user
+        message = Message.query.get(id)
+        message.Chatters.append(user)
+        db.session.commit()
+        return jsonify({'success':True})
+    return redirect(url_for('login'))
+
+@app.route("/post_msg/<message>")
+def post_msg(message):
+    if current_user.is_authenticated:
+        user = current_user
+        msg = Message(message=message)
+        db.session.add(msg)
+        msg.Chatters.append(user)
+        db.session.commit()
+        return jsonify({'success': True})
+    return redirect(url_for('login'))
+
+
 if __name__ == "__main__":
     db.create_all()
     app.run(debug=True)

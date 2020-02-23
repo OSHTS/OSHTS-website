@@ -50,7 +50,6 @@
 		//background-color: #333333;
 		display: block;
 		overflow-y: scroll;
-
 	}
 
 	.send{
@@ -64,7 +63,7 @@
 		left: 43%;
 	}
 
-	.message{
+.message{
 		background-color: #4158d0;
 		padding: 10px;
 		color: white;
@@ -72,12 +71,12 @@
 		margin-top:10px;
 		margin-left: 5px;
 		border-radius: 5px;
-		max-width: 300px;
 		height: auto;
-
+		justify-items:start;
+		border-radius: 20px;
+		max-width:400px;
+		border-bottom-left-radius: 0px;
 }
-
-
 
 </style>
 </head>
@@ -90,12 +89,6 @@
 					Chatroom
 				</span>
 				<div class="screen" id="screen">
-					<div class="message txt2">
-						Hey guys, I am new here.
-					</div>
-					<div class="message txt2">
-						Hope I am welcomed here, :-).
-					</div>
 				</div>
 				<div class="wrap-input100 validate-input" data-validate = "Password is required">
 					<input class="input100" id="message" type="text" name="message" placeholder="Enter your message" >
