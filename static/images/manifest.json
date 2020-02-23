@@ -1,12 +1,12 @@
 {
  "name": "OSHTS",
- "short_name": "OSHTS"
+ "short_name": "OSHTS",
  "start_url": "/?utm_source=homescreen",
  "background-color" : "#323232",
  "display": "standalone",
  "orientation": "potrait",
  "scope": "/",
- "theme-color": "#323232"
+ "theme-color": "#323232",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
